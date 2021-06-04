@@ -12,7 +12,7 @@ class interface():
 
     def run_interface(self):
         file_mgmt.create_home()
-        while self.menu_option != "4":
+        while self.menu_option != "9":
             #Main Menu System
             if self.menu_option == "0":
                 self.menu_option = menu.run_menus(self.menu_option)
@@ -31,8 +31,9 @@ class interface():
                 #league_list = file_mgmt.get_leagues()
                 self.league_name = menu.run_menus(self.menu_option)
                 self.menu_option = "3"
+            #Within a League Menu
             elif self.menu_option == "3":
-                menu.run_menus(self.menu_option)
+                self.menu_option = menu.run_menus(self.menu_option)
                 pass
         print(self.league_name)    
         #pass

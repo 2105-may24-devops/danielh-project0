@@ -12,4 +12,6 @@ class team:
         file_mgmt.create_team_file(self.league, self.name, self.rating)
         pass
         
+    def __str__(self) -> str:
+        return (f"League Name: {self.league}, Team Name: {self.name}, Team Rating: {self.rating}")
         

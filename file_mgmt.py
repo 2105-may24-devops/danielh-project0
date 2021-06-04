@@ -1,4 +1,5 @@
 from pathlib import Path
+from team_mgmt import team
 import settings
 import os
 homedir = settings.homedir
@@ -24,10 +25,11 @@ def create_dir(name, filetype):
 
 # Create team director within given league
 def create_team_file(league_name, team_name, team_rating):
+    this_team = team(team_name, team_rating)
     try:
         Path(f"./{homedir}/{league_name}/{team_name}").mkdir(parents=True)
         with open(f"./{homedir}/{league_name}/{team_name}/team_info.txt", "a+") as f:
-            f.write(f"Team Rating: {team_rating}")
+            f.write(str(this_team))
     except FileExistsError:
         return False
     pass
