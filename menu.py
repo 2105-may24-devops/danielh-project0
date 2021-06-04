@@ -11,13 +11,9 @@ class Menu:
     "0": Option("Return to Main Menu")}
     current_menu = "0"
 
-<<<<<<< HEAD
     #MENU SELECTOR
     #Handles selection of desired menu
     #prints selected menu
-=======
-    #Method for geting user input and running features
->>>>>>> 72f05ec70a1fe69e5c1068c8257a249f966fa045
     def menu_selector(self, menu_selection):
         self.current_menu = menu_selection
         if self.current_menu == "0":
@@ -29,7 +25,6 @@ class Menu:
         elif self.current_menu == "3":
             self.print_leagueMenu()
             pass
-<<<<<<< HEAD
 
     
 
@@ -40,19 +35,10 @@ class Menu:
         print("\n{0}\n Please Select an Option\n{0}".format(self._separator))
 
     #Prints the main menu, listing available options
-=======
-    
-    #print main header display
-    def print_mainHeader(self):
-        print("\n{0}\n Please Select an Option\n{0}".format(self._separator))
-
-    #method for printing main menu
->>>>>>> 72f05ec70a1fe69e5c1068c8257a249f966fa045
     def print_mainMenu(self):
         self.print_mainHeader()
         for option in sorted(self._main_options.keys()):
             print ("{0} {1}".format(option, self._main_options[option].label))
-<<<<<<< HEAD
 
     #Input prompt for user to select option from main menu
     def main_prompt(self):    
@@ -76,39 +62,12 @@ class Menu:
 
     #Prompts user for input: name and size for league to be created
     #Return input as tuple
-=======
-    #print menu for League creation 
-    def print_createLeagueMenu(self):
-        print("\n{0}\n Create a League\n{0}".format(self._separator))
-        pass
-    #print loading menu
-    def print_loadLeagueMenu(self):
-        pass
-    #Method for getting user input for League information 
->>>>>>> 72f05ec70a1fe69e5c1068c8257a249f966fa045
     def create_prompt(self):
         league_input = ()
         league_input = tuple(input("Please enter a name and size for your league: ").split(","))
         return league_input
-<<<<<<< HEAD
 
     
-=======
-    #method for getting user input for menu
-    def main_prompt(self):    
-        return input("Select Option: ")
-    #Method for selecting Leagues
-    def league_prompt(self):
-        print(file_mgmt.get_leagues())
-        return input("Select League: ")
-    #Error handling for user input
-    def handle_input(self, chosen_option):
-        try:
-            print (self._main_options[chosen_option].label)
-            return chosen_option
-        except KeyError:
-            print ("Invalid Option")
->>>>>>> 72f05ec70a1fe69e5c1068c8257a249f966fa045
     
     #LEAGUE SELECTOR MENU
 
@@ -131,7 +90,6 @@ class Menu:
 
     def print_loadLeagueMenu(self): 
         pass
-<<<<<<< HEAD
 
     #LEAGUE MENU
 
@@ -157,9 +115,6 @@ class Menu:
 
 #Handles running the menus by calling menu_selector method
 #runs desired menu and returns output from running the menu
-=======
-#Method for starting menu display and electin process
->>>>>>> 72f05ec70a1fe69e5c1068c8257a249f966fa045
 def run_menus(menu_selection):
     menu = Menu()
     menu.menu_selector(menu_selection)
