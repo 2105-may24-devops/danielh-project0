@@ -1,6 +1,7 @@
 from collections import namedtuple
 import file_mgmt
 
+#class definition for Menu
 class Menu:
     Option = namedtuple('option', 'label')
     _separator = "=" * 25
@@ -9,6 +10,7 @@ class Menu:
     _league_options = None
     current_menu = "0"
 
+    #Method for geting user input and running features
     def menu_selector(self, menu_selection):
         self.current_menu = menu_selection
         if self.current_menu == "0":
@@ -18,34 +20,36 @@ class Menu:
         else:
             self.print_loadLeagueMenu()
             pass
-
+    
+    #print main header display
     def print_mainHeader(self):
         print("\n{0}\n Please Select an Option\n{0}".format(self._separator))
 
+    #method for printing main menu
     def print_mainMenu(self):
         self.print_mainHeader()
         for option in sorted(self._main_options.keys()):
             print ("{0} {1}".format(option, self._main_options[option].label))
-
+    #print menu for League creation 
     def print_createLeagueMenu(self):
         print("\n{0}\n Create a League\n{0}".format(self._separator))
         pass
-
+    #print loading menu
     def print_loadLeagueMenu(self):
         pass
-
+    #Method for getting user input for League information 
     def create_prompt(self):
         league_input = ()
         league_input = tuple(input("Please enter a name and size for your league: ").split(","))
         return league_input
-
+    #method for getting user input for menu
     def main_prompt(self):    
         return input("Select Option: ")
-    
+    #Method for selecting Leagues
     def league_prompt(self):
         print(file_mgmt.get_leagues())
         return input("Select League: ")
-    
+    #Error handling for user input
     def handle_input(self, chosen_option):
         try:
             print (self._main_options[chosen_option].label)
@@ -64,7 +68,7 @@ class Menu:
             print ("Invalid Option")
 
         pass
-
+#Method for starting menu display and electin process
 def run_menus(menu_selection):
     menu = Menu()
     menu.menu_selector(menu_selection)
