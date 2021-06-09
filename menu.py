@@ -73,7 +73,9 @@ class Menu:
 
     #Prompts user to select league from list of all created leagues
     def choose_league_prompt(self):
-            print(file_mgmt.get_leagues())
+            leagues = file_mgmt.get_leagues()
+            for league in leagues:
+                print(league)
             return input("Select League: ")
 
     #Handles selection of league to load
