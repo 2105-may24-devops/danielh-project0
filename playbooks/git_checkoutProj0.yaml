@@ -1,0 +1,12 @@
+# Deploy Project 0
+- name: Deploy Project 0 from GitHub
+  hosts: all
+  #become: yes
+  tasks:
+  - name: "clone or git pull project0 repo"
+    ansible.builtin.git:
+      repo: https://github.com/2105-may24-devops/danielh-project0.git
+      dest: ~/danielh-project0
+      
+  - name: Create venv 
+    ansible.builtin.shell: 'python3 -m venv ~/danielh-project0/venv'

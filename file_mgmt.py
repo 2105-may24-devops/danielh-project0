@@ -17,9 +17,11 @@ def create_home():
    
 # Create directory
 # If directory exists return false
-def create_dir(name, filetype):
+def create_dir(name, size, filetype):
     try:
         Path(f"./{homedir}/{name}").mkdir(parents=True)
+        with open(f"./{homedir}/{name}/league_info.txt", "a+") as f:
+            f.write(f"League Name: {name}, Size: {size} ")
     except FileExistsError:
         return False
 
@@ -42,5 +44,25 @@ def get_leagues():
     leagues = next(os.walk(f'./{homedir}'))[1]
     return leagues
 
+def print_teams(league):
+    teams = next(os.walk(f'./{homedir}/{league}'))[1]
+    print(teams)
+
+def get_teams(league):
+    teams = next(os.walk(f'./{homedir}/{league}'))[1]
+    return teams
+
+def get_teamInfo(league):
+    teams = get_teams(league)
+    team_info = []
+    for team in teams:
+        with open(f'./{homedir}/{league}/{team}/team_info.txt', 'r') as fin:
+            team_info.append(fin.read())
+    return team_info
     
-            
+def get_leagueSize(league):
+    league_info = None
+    with open(f"./{homedir}/{league}/league_info.txt", "r") as f:
+            league_info = f.read()
+    size = int(league_info.partition("Size: ")[2])
+    return size

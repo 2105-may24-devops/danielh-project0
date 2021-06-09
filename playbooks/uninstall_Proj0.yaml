@@ -1,0 +1,6 @@
+- name: Uninstall Project0
+  hosts: all
+
+  tasks: 
+  - name: Delete Project0 from home directory
+    shell: rm -rf ~/danielh-project0

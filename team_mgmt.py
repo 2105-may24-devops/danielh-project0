@@ -13,5 +13,5 @@ class team:
         pass
         
     def __str__(self) -> str:
-        return (f"League Name: {self.league}, Team Name: {self.name}, Team Rating: {self.rating}")
+        return (f"Team Name: {self.name}, Team Rating: {self.rating}")
         

@@ -10,11 +10,12 @@ class Menu:
     _league_options = {"1": Option("View Teams"),"2": Option("Simulate Season"), 
     "0": Option("Return to Main Menu")}
     current_menu = "0"
+    league_selection = None
 
     #MENU SELECTOR
     #Handles selection of desired menu
     #prints selected menu
-    def menu_selector(self, menu_selection):
+    def menu_selector(self, menu_selection, league_selection = None):
         self.current_menu = menu_selection
         if self.current_menu == "0":
             self.print_mainMenu()
@@ -23,7 +24,7 @@ class Menu:
         elif self.current_menu == "2":
             self.print_loadLeagueMenu()
         elif self.current_menu == "3":
-            self.print_leagueMenu()
+            self.print_leagueMenu(league_selection)
             pass
 
     
@@ -84,6 +85,7 @@ class Menu:
         options = file_mgmt.get_leagues()
         try:
             if chosen_option in options:
+                self.league_selection = chosen_option
                 return chosen_option
         except:
             print ("Invalid Option")
@@ -96,12 +98,12 @@ class Menu:
     #LEAGUE MENU
 
     #Prints header for League Menu
-    def print_leagueHeader(self):
-        print("\n{0}\n League Menu\n{0}".format(self._separator))
+    def print_leagueHeader(self, league_selection):
+        print("\n{0}\n League Menu: {1}\n{0}".format(self._separator, league_selection))
 
     #Prints options for league menu
-    def print_leagueMenu(self):
-        self.print_leagueHeader()
+    def print_leagueMenu(self, league_selection):
+        self.print_leagueHeader(league_selection)
         for option in sorted(self._league_options.keys()):
             print ("{0} {1}".format(option, self._league_options[option].label))
     
@@ -117,9 +119,9 @@ class Menu:
 
 #Handles running the menus by calling menu_selector method
 #runs desired menu and returns output from running the menu
-def run_menus(menu_selection):
+def run_menus(menu_selection, league_selection=None):
     menu = Menu()
-    menu.menu_selector(menu_selection)
+    menu.menu_selector(menu_selection, league_selection)
     if menu_selection == "0":
         return menu.handle_main_input(menu.main_prompt())
     if menu_selection == "1":
