@@ -2,17 +2,26 @@ from pathlib import Path
 from team_mgmt import team
 import settings
 import os
+from datetime import datetime
 homedir = settings.homedir
+
 
 # Create home directory within which all other game dir/files are stored
 # if home dir exists welcome back user
 def create_home():
+    now = datetime.now()
     try:
         Path(f"./{homedir}").mkdir(parents=True)
         with open(f"./{homedir}/info.txt", "a+") as f:
             f.write("This is the home directory, in which all league files are stored.")
+        with open(f"./{homedir}/log.txt", "a+") as f:
+            f.write(f"Most recent run: {now}")  
     except FileExistsError:
         #print("Welcome back!")
+        with open(f"./{homedir}/log.txt", "r+") as f:
+            content = f.read()
+            f.seek(0, 0)
+            f.write(f"Most recent run: {now} \n{content}")
         pass
    
 # Create directory

@@ -53,6 +53,7 @@ class Menu:
             return chosen_option
         except KeyError:
             print ("Invalid Option")
+            return "0"
 
     #CREATE LEAGUE MENU
 
@@ -75,6 +76,7 @@ class Menu:
     #Prompts user to select league from list of all created leagues
     def choose_league_prompt(self):
             leagues = file_mgmt.get_leagues()
+            print("Leagues: \n")
             for league in leagues:
                 print(league)
             return input("Select League: ")

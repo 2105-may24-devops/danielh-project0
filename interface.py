@@ -24,17 +24,26 @@ class interface():
             elif self.menu_option == "1":
                 self.league_info = menu.run_menus(self.menu_option)
                 #print(self.league_info)
-                name, size = self.league_info
-                league = league_mgmt.league(name,size)
-                league.create_league()
-                league.populate_league()
-                print("League created.")
+                try:
+                    name, size = self.league_info
+                    league = league_mgmt.league(name,size)
+                    league.create_league()
+                    league.populate_league()
+                    print("League created.")
+                except ValueError:
+                    print("Invalid Input. Example: 'league, 12' ")
+                    self.menu_option = "0"
+                
                 self.menu_option = "0"
             #Load a League Menu
             elif self.menu_option == "2":
                 #league_list = file_mgmt.get_leagues()
                 self.league_name = menu.run_menus(self.menu_option)
-                self.menu_option = "3"
+                if self.league_name == None:
+                    print("Invalid selection.")
+                    self.menu_option == "2"
+                else:
+                    self.menu_option = "3"
             #Within a League Menu
             elif self.menu_option == "3":
                 #print(self.league_name)
