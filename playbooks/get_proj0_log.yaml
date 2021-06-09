@@ -1,0 +1,8 @@
+- name: Get project log
+  hosts: all
+
+  tasks: 
+    - shell: line=$(head -n 1 ~/gamefiles/log.txt) && echo $line
+      register: log
+
+    - debug: var=log.stdout_lines
