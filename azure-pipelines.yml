@@ -1,4 +1,19 @@
 # Starter pipeline
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: |
@@ -21,18 +36,15 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-
-trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'agentMachine'
+    playbookPathOnAgentMachine: './playbooks/setup_env.yaml'
+    inventoriesAgentMachine: 'file'
+    inventoryFileOnAgentMachine: './playbooks/inventory'
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'agentMachine'
+    playbookPathOnAgentMachine: './playbooks/git_checkoutProj0.yaml'
+    inventoriesAgentMachine: 'file'
+    inventoryFileOnAgentMachine: './playbooks/inventory'
