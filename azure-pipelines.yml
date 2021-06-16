@@ -1,4 +1,23 @@
 # Starter pipeline
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: |
+      13.65.42.214 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDgDBa8J9ies31MG1xpL7gSESrLxC5PWpsAWpiTWpVn
+      13.65.42.214 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/ZtHziWx6ZXblZRAG5VBYoE4Lx6pF7ZBvHJ6vq5txfKp5GZXbAmb1pjJyccLsguJRr9>
+      13.65.42.214 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLP9SkKMe2QK5e4IzLNCvQtDJ06ofyC7rb>
+      104.215.72.107 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJk+a+SRoJjBsnplbbE6vG/9O6jJ/LsdBjK0K7A7FfOI
+      104.215.72.107 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0f57lrkvEQNK1ftlYNYadgJ2Clq866W/RIr76ybA8NxHXGJmjL5kTGr2lS/K65V5y>
+      104.215.72.107 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBol0BBG7Ah1dEgciEgRkqJ3tnLSOPHG>
+      20.97.12.217 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDN4l2Jv2Krgw9EN21HHWfXGAoHZx/zHX5C0Iq9Ov/UU
+      20.97.12.217 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+OrY0VO+gD8eFk3wmVBY9McSOniH83A0mEM6kHeYQMpKNKbuar/DVBjkgz1sgfmrWLH>
+      20.97.12.217 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFAZU4nQNS6lNWqiFzoQ4pjTSmsGyxWmyo>
+      13.84.166.27 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINaFd/osyfNlVttxEeG0MTSwwJsK++s1E7q3wJpcKst5
+      13.84.166.27 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLzZIAA7oqZlnHt9uY/Yk5aEY+m1o3Zuufdrd414Kar8bGeIGmy66ybawzsk+fR4N/8h>
+      13.84.166.27 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBD/ijCrZ+LcL4gEv5Y0K7/h1/QNY85jbQG>
+      13.66.8.112 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPjy7rU3xXGsITizQ4anwpuB4eqyo6o914F/jklV1az5
+      13.66.8.112 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjFAGX6TQ7ohidiP51piTRkWdEHnZVJ59vgF9BREt1IsVYxq/jJdRN7V2Wzpr2LN6XnyV>
+      13.66.8.112 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB8uiPgYsAfhZo9tzfam2hbv7G1TUF4hk0j>
+    sshKeySecureFile: '2105-may24-devops-ubuntu-vm-1_key.pem'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
