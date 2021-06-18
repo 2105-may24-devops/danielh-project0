@@ -14,6 +14,22 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+  
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud-dchine'
+    organization: '2105-may24-devops'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: '2105-may24-devops_danielh-project0'
+    cliSources: '.'
+
+- task: SonarCloudAnalyze@1
+
+# publishing the "quality gate" result to the build run in azure pipelines
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: |
