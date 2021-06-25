@@ -1,9 +1,9 @@
 pipeline {
-    agent { any { image 'maven:3.3.3' } }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'Hello, World!'
+                sh echo 'Hello, World!'
             }
         }
     }
